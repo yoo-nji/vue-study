@@ -7,6 +7,11 @@ import PostEditView from '@/pages/posts/PostEditView.vue';
 import PostListView from '@/pages/posts/PostListView.vue';
 import NotFoundView from '@/pages/NotFoundView.vue';
 
+import NestedView from '@/pages/nested/NestedView.vue';
+import NesteHomeView from '@/pages/nested/NestedHomeView.vue';
+import NestedOneView from '@/pages/nested/NestedOneView.vue';
+import NestedTwoView from '@/pages/nested/NestedTwoView.vue';
+
 
 const routes = [
   {
@@ -45,6 +50,28 @@ const routes = [
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: NotFoundView
+  },
+  {
+    path: '/nested',
+    name: 'Nested',
+    component: NestedView,
+    children: [
+      {
+        path: '',
+        name: 'NesteHome',
+        component: NesteHomeView,
+      },
+      {
+        path: 'one',
+        name: 'NestedOne',
+        component: NestedOneView,
+      },
+      {
+        path: 'two',
+        name: 'NestedTwo',
+        component: NestedTwoView,
+      }
+    ]
   },
 ];
 
